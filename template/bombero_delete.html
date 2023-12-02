@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+{% load crispy_forms_tags %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h1>Eliminar Post</h1>
+            <hr>
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col-md-12">
+            <form action="" method="post"> {% csrf_token %}
+                <p>¿Estas seguro que quieres eliminar el post "{{ cabina.nombre_cabina }}"?</p>
+                <input class="btn btn-primary" type="submit" value="Confirmar">
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

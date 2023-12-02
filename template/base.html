@@ -1,0 +1,100 @@
+<!--llamando a la carpeta static-->
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <!--Boostrap-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+    <!--Css-->
+    <link rel="stylesheet" href="{% static 'css/tarjeta.css'%}">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
+
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <img src="/static/images/logo_bomberos.png" widt="50" height="50">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDarkDropdown" aria-controls="navbarNavDarkDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
+        <ul class="navbar-nav">
+          <li class="nav-item dropdown">
+            <button class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+              Dropdown
+            </button>
+            <ul class="dropdown-menu dropdown-menu-dark">
+              <li><a class="dropdown-item" href="{% url 'home'%}">Inicio</a></li>
+              <li><a class="dropdown-item" href="{% url 'informacion'%}">Inventario</a></li>
+              <li><a class="dropdown-item" href="{% url 'bombero_new' %}">Ingresar Datos</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      {% if user.is_authenticated %}
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <span class="navbar-brand" href="#">
+              <a class="nav-link" href="#">{{ user.username }}</a>
+            </span>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'logout' %}">Cerrar sesión</a>
+          </li>
+        </ul>
+      {% else %}
+        <span class="navbar-brand" href="#">
+          <a class="link-light" href="{% url 'login' %}" role="button">Iniciar sesión</a>
+        </span>
+      {% endif %}
+    </div>
+  </nav>
+
+    
+{% block content %} 
+{% endblock content%}
+    
+</body>
+
+<footer class="bg-dark text-white pt-5 pb-4">
+  <div class="container text-center text-md-left">
+    <div class="row text-center text-md-left">
+      <div class="col_md-3 col-lg-3 col-xl-3 mx-auto mt-3">
+        <h5 class="text-uppercase mb-4 font-weight-bold text-warning"> Acerca de la Compañía</h5>
+        <p> Lema de bomberos bla bla bla bla</p>
+      </div>
+
+      <div class="col_md-3 col-lg-3 col-xl-3 mx-auto mt-3">
+        <h5 class="text-uppercase mb-4 font-weight-bold text-warning"> Acerca de la Página</h5>
+        <p>Este sitio web ha sido diseñado para optimizar el control del inventario del Cuerpo de Bomberos de la ciudad de Iquique, específicamente del Cuartel *</p>
+      </div>
+
+      
+      <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
+        <h5 class="text-uppercase mb-4 font-weight-bold text-warning"> Contacto</h5>
+        <p>
+          <i class="fas fa-home mr-3"></i> Dirección, Iquique, Chile
+        </p>
+        <p>
+          <i class="fas fa-envelope mr-3"></i> correo@gmail.com
+        </p>
+        <p>
+          <i class="fas fa-phone mr-3"></i> +56900000000
+        </p>
+        <p>
+          <i class="fas fa-print mr-3"></i> (57) 413166- 423124
+        </p>
+      </div>
+      <hr class="mb-4">
+        <div>
+          <p> Copyright ©2023 All rights reserved</p>
+
+        </div>
+    </div>
+  </div>
+</footer>
+</html>

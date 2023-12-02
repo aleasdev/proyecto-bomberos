@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h3>Bienvenido {{ user.username }}</h3>
+                <h1>Sitio principal</h1>
+                <hr>
+                <img src="{% static 'images/main.png' %}" alt="Imagen Personal">
+        </div>
+    </div>
+</div>
+{% endblock content %}

@@ -1,0 +1,85 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width:auto;
+    background-color: rgb(237, 235, 64);
+}
+  
+.card {
+    background-color: #fff;
+    padding: 5rem;
+    border-radius: 5px;
+    color: #888;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    width: 25rem;
+}
+  
+.logo {
+    display: flex;
+    justify-content: center;
+}
+  
+.logo img {
+    height: 7rem;
+}
+  
+.title {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+}
+  
+.input-group {
+    margin-top: 1rem;
+}
+  
+.input-group-text {
+    background-color: rgb(237, 235, 64);
+}
+  
+.input-group-text img {
+    height: 1rem;
+}
+  
+.form-control {
+    background-color: #f8f8f8;
+}
+  
+.checkbox-group {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+  
+.checkbox-group input {
+    margin: 0;
+}
+  
+.forgot-password {
+    font-size: 0.9rem;
+}
+  
+.login-button {
+    background-color: #000;
+    color: #fff;
+    width: 100%;
+    margin-top: 1rem;
+    font-weight: bold;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+  
+.register-section {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 1rem;
+}
+  
+.register-section a {
+    text-decoration: none;
+    color: #007bff;
+    font-weight: bold;
+}
+  

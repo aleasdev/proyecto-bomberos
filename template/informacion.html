@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<form class="tarjetas">
+  <div class=" container text-center p-6">
+    <div class="row">
+      
+      <div class="row">
+        <div class="col-md-12">
+          <h1>Sistema de blog</h1>
+          <hr>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <a class="btn btn-primary" href="{% url 'bombero_new'%}" role="button">+ nuevo</a>  
+        </div>
+      </div>
+
+      <br>
+      <br>
+      <br>
+
+      {% for cabina in cabina_list %} 
+      <div class="col-sm-4">
+        <div class="card" style="width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title titleColor">{{ cabina.id_cabina_id }}</h5>
+            <p class="card-subtitle mb-2 authorColor">{{ cabina.nombre_cabina }}</p>
+            <p class="card-text bodyColor">{{ cabina.item }}</p>
+            <p class="card-text bodyColor">{{ cabina.elemento }}</p>
+            <p class="card-text bodyColor">{{ cabina.marca }}</p>
+            <p class="card-text bodyColor">{{ cabina.observacion }}</p>
+            <p class="card-text bodyColor">{{ cabina.cantidad }}</p>
+            <p class="card-text bodyColor">{{ cabina.estado }}</p>
+
+            <a href="{% url 'bombero_detail' cabina.pk %}" class="card-link">Ver Mas</a>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+
+</form>
+
+
+
+
+{% endblock content %}

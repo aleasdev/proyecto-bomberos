@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% block content %}
+
+<!--formulario de inventario-->
+
+<!--Ejemplo de tabla del inventario-->
+        <div class="container text-center">
+            <div class="container mt-5">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="table-responsive">
+                            <table id="datatable-vehiculos" class="table">
+                                <caption>
+                                    Tabla de informacion
+                                </caption>
+                                <thead>
+                                    <tr>
+                                        <th class="centered">ID</th>
+                                        <th class="centered">CABINA</th>
+                                        <th class="centered">ELEMENTO</th>
+                                        <th class="centered">MARCA</th>
+                                        <th class="centered">OBSERVACIONES</th>
+                                        <th class="centered">CANTIDAD</th>
+                                        <th class="centered">ESTADO</th>
+                                        <th class="centered">OPCIÓN</th>
+        
+                                    </tr>
+        
+                                    {% for cabina in cabina_list %}
+        
+                                    <tr>
+                                      <td class="centered">{{cabina.id_cabina}}</td>
+                                      <td class="centered">{{cabina.nombre_cabina}}</td>
+                                      <td class="centered">{{cabina.elemento}}</td>
+                                      <td class="centered">{{cabina.marca}}</td>
+                                      <td class="centered">{{cabina.observaciones}}</td>
+                                      <td class="centered">{{cabina.cantidad}}</td>
+                                      <td class="centered">{{cabina.estado}}</td>
+                                      <td class="centered">
+                                        
+                                        <a class= "btn btn-primary btn-sm" href="{% url 'bombero_edit' cabina.pk %}">modificar</a>
+
+                                        <br>
+                                        <br>
+
+                                        <a class= "btn btn-danger btn-sm" href="{% url 'bombero_delete' cabina.pk %}">Eliminar</a>
+                                      </td>
+                                    </tr>
+                                    {% endfor %}
+                                </thead>
+        
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+</form>
+
+
+{% endblock content %}
